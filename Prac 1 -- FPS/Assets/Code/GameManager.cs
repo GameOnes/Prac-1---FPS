@@ -3,9 +3,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameController : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    static private GameController m_GameController; // siempre debería ser privado porque si no seria accesible desde cualquier clase rompiendo con el patron singleton
+    static private GameManager m_GameController; // siempre debería ser privado porque si no seria accesible desde cualquier clase rompiendo con el patron singleton
     PlayerController m_Player;
     public Transform m_DestroyObjects; // cada vez que recarga una escena destruye todos los objetos hijos dentro de la escena.
     private void Awake()
@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(gameObject); // hace que el objeto no se destruya al cargar una nueva escena
 
     }
-    public static GameController GetGameController() // se usa un metodo estatico para acceder a la instancia desde otras clases.
+    public static GameManager GetGameManager() // se usa un metodo estatico para acceder a la instancia desde otras clases.
                                                // una instancia es un objeto creado a partir de una clase.
     {
         return m_GameController;

@@ -50,14 +50,19 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        PlayerController l_Player=GameController.GetGameController().GetPlayer();
+        PlayerController l_Player=GameManager.GetGameManager().GetPlayer();
         if (l_Player!=null) // si ya existe un player lo encontramos y destruimos
         {
             l_Player.m_CharacterController.enabled=false; // deshabilitamos el character controller para evitar problemas al destruir el objeto
-            l_player
+            l_Player.transform.position=transform.position; // colocamos el nuevo player en la posicion del antiguo
+            l_Player.transform.rotation=transform.rotation; // colocamos el nuevo player en la rotacion del antiguo
+            l_Player.m_CharacterController.enabled=true; // habilitamos el character controller
+            GameObject.Destroy(gameObject); // destruimos el objeto actual  
             return; 
         }
+
         DontDestroyOnLoad(gameObject); // hace que el objeto no se destruya al cargar una nueva escena
+        GameManager.GetGameManager().SetPlayer(this); // asignamos el player al game manager
         Cursor.lockState=CursorLockMode.Locked;
         SetIdleAnimation();
     }
