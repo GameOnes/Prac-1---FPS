@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     public KeyCode m_ReloadKeyCode = KeyCode.R;
     public int m_ShootMouseButton = 0;
 
+    public int m_PlayerLife=3;
+
     [Header("Debug Input")]
     public KeyCode m_DebugLockAngleKeyCode=KeyCode.I;
 
