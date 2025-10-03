@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     public KeyCode m_ReloadKeyCode = KeyCode.R;
     public int m_ShootMouseButton = 0;
 
-    public int m_PlayerLife=3;
+    public int m_PlayerLife=100;
 
     [Header("Debug Input")]
     public KeyCode m_DebugLockAngleKeyCode=KeyCode.I;
@@ -50,6 +50,14 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        PlayerController l_Player=GameController.GetGameController().GetPlayer();
+        if (l_Player!=null) // si ya existe un player lo encontramos y destruimos
+        {
+            l_Player.m_CharacterController.enabled=false; // deshabilitamos el character controller para evitar problemas al destruir el objeto
+            l_player
+            return; 
+        }
+        DontDestroyOnLoad(gameObject); // hace que el objeto no se destruya al cargar una nueva escena
         Cursor.lockState=CursorLockMode.Locked;
         SetIdleAnimation();
     }

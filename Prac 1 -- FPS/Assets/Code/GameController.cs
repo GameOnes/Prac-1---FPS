@@ -6,8 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     static private GameController m_GameController; // siempre debería ser privado porque si no seria accesible desde cualquier clase rompiendo con el patron singleton
-    public Transform m_DestroyObjects;
-    private void Start()
+    PlayerController m_Player;
+    public Transform m_DestroyObjects; // cada vez que recarga una escena destruye todos los objetos hijos dentro de la escena.
+    private void Awake()
     {
         //var un indicador para crear variables.
         // un singleton es una clase estatica publica que solo puede tener una instancia
@@ -16,10 +17,11 @@ public class GameController : MonoBehaviour
             GameObject.Destroy(gameObject); // destruye el objeto actual
             return; // sale del metodo
         }
-        DontDestroyOnLoad(gameObject);
+        m_GameController = this; // si no existe una instancia la crea
+        DontDestroyOnLoad(gameObject); // hace que el objeto no se destruya al cargar una nueva escena
 
     }
-    public static GameController GetInstance() // se usa un metodo estatico para acceder a la instancia desde otras clases.
+    public static GameController GetGameController() // se usa un metodo estatico para acceder a la instancia desde otras clases.
                                                // una instancia es un objeto creado a partir de una clase.
     {
         return m_GameController;
@@ -33,7 +35,7 @@ public class GameController : MonoBehaviour
     }
     private void Update()
     {
-       if(Input.GetKeyDown(KeyCode.Alpha1))
+       if(Input.GetKeyDown(KeyCode.Alpha1)) // tecla 1
        {
             SceneManager.LoadScene("Level1Scene");
        }
@@ -41,6 +43,14 @@ public class GameController : MonoBehaviour
        {
             SceneManager.LoadScene("Level2Scene");
        }
+    }
+    public PlayerController GetPlayer()
+    {
+        return m_Player;
+    }
+    public void SetPlayer(PlayerController player)
+    {
+       m_Player=player;
     }
 }
 
