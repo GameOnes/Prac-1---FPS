@@ -2,7 +2,6 @@ using JetBrains.Annotations;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class GameManager : MonoBehaviour
 {
     static private GameManager m_GameController; // siempre debería ser privado porque si no seria accesible desde cualquier clase rompiendo con el patron singleton

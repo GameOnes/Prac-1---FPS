@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public CharacterController m_CharacterController;
     float m_VerticalSpeed=0.0f;
 
+    public float m_AmmoCount =0.0f;
+
     bool m_AngleLocked=false;
     public float m_Speed;
     public float m_JumpSpeed;
@@ -171,7 +173,18 @@ public class PlayerController : MonoBehaviour
         m_Animation.CrossFadeQueued(m_IdleAnimationClip.name, 0.0f);
 
     }
+    public void AddAmmo(float ammo)
+    {
+        
+        m_AmmoCount+= ammo;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.activeSelf)
+        {
 
+        }
+    }
 
 }
 
