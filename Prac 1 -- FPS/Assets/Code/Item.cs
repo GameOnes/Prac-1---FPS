@@ -2,7 +2,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
 
-    public void Pick()
+    public virtual void Pick()
     {
         GameObject.Destroy(gameObject);
     }

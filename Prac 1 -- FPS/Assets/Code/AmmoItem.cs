@@ -5,7 +5,7 @@ public class AmmoItem : Item
     public override void Pick()
     {
         base.Pick();
-        GameManager.GetGameManager().GetPlayer().AddAmmo()
+        //GameManager.GetGameManager().GetPlayer().AddAmmo()
     }
 }
 
