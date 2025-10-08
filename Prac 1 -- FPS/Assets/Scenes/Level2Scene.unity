@@ -513,12 +513,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6853849959765122046, guid: cb5931e316ca31d49a4e50526d4ee2e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 6.4800005
       objectReference: {fileID: 0}
     - target: {fileID: 6853849959765122046, guid: cb5931e316ca31d49a4e50526d4ee2e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8852479668471365256, guid: cb5931e316ca31d49a4e50526d4ee2e1, type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: f41cf36f8164be54aa02c16731e81a94, type: 2}
+    - target: {fileID: 8852479668471365256, guid: cb5931e316ca31d49a4e50526d4ee2e1, type: 3}
+      propertyPath: m_PlayAutomatically
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852479668471365256, guid: cb5931e316ca31d49a4e50526d4ee2e1, type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852479668471365256, guid: cb5931e316ca31d49a4e50526d4ee2e1, type: 3}
+      propertyPath: 'm_Animations.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7400000, guid: f41cf36f8164be54aa02c16731e81a94, type: 2}
     m_RemovedComponents:
     - {fileID: 2171581165083443938, guid: cb5931e316ca31d49a4e50526d4ee2e1, type: 3}
     m_RemovedGameObjects: []
