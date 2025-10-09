@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public bool m_UseInvertedPitch;
     public CharacterController m_CharacterController;
     float m_VerticalSpeed=0.0f;
+    float coyoteTime = 0.2f;
+    float coyoteTimeCounter;
 
     public float m_AmmoCount =0.0f;
 
