@@ -309,6 +309,10 @@ PrefabInstance:
       value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_AmmoCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_Animation
       value: 
       objectReference: {fileID: 646960620}
@@ -580,7 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 209d6b2007f6e664cb6507a21d8e2a52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _AmmoCount: 0
+  _AmmoCount: 10
 --- !u!1001 &1536380007
 PrefabInstance:
   m_ObjectHideFlags: 0
