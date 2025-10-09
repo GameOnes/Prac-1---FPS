@@ -318,7 +318,7 @@ PrefabInstance:
       objectReference: {fileID: 646960620}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_PitchSpeed
-      value: 250
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_UseInvertedYaw
@@ -501,6 +501,10 @@ PrefabInstance:
     - target: {fileID: 998267697344781492, guid: cb5931e316ca31d49a4e50526d4ee2e1, type: 3}
       propertyPath: m_Name
       value: AmmoItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 5440141573249590063, guid: cb5931e316ca31d49a4e50526d4ee2e1, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6853849959765122046, guid: cb5931e316ca31d49a4e50526d4ee2e1, type: 3}
       propertyPath: m_LocalPosition.x
