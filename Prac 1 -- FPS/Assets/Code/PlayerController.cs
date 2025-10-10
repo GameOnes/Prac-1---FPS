@@ -1,6 +1,8 @@
 using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
+    Vector3 m_StartPosition;
+    Quaternion m_StartRotation;
     float m_Yaw;
     float m_Pitch;
     public float m_YawSpeed;
@@ -64,6 +66,8 @@ public class PlayerController : MonoBehaviour
             GameObject.Destroy(gameObject); // destruimos el objeto actual  
             return; 
         }
+        m_StartPosition = transform.position;
+        m_StartRotation = transform.rotation;
 
         DontDestroyOnLoad(gameObject); // hace que el objeto no se destruya al cargar una nueva escena
         GameManager.GetGameManager().SetPlayer(this); // asignamos el player al game manager
@@ -197,6 +201,19 @@ public class PlayerController : MonoBehaviour
                 l_Item.Pick();
             }
         }
+        else if (other.CompareTag("DeadZone"))
+        {
+            Kill();
+        }
+    }
+    void Kill()
+    {
+        GameManager.GetGameManager().ReloadLevel();
+    }
+    void rESTART()
+    {
+        m_CharacterController
+        transform.position = m_startPosition;
     }
 
 }

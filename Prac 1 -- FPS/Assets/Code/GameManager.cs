@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
         {
             GameObject.Destroy(m_DestroyObjects.GetChild(i).gameObject);
         }
+        m
     }
     private void Update()
     {
