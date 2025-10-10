@@ -141,7 +141,28 @@ public class EnemyController : MonoBehaviour
     Deberemos comprobar tambien que el enemigo esta mirando en la direccion del player, para ello utilizaremos el 
     producto escalar entre dos vectores.
      */
+    public float m_SightAngle = 60.0f;
+    public LayerMask m_SightLayerMask;
+    public float m_EyesHeight = 1.0f;
+    bool SeesPlayer()
+    {
+        Vector3 l_PlayerPosition = GameManager.GetGameManager().GetPlayer().transform.position;
+        Vector3 l_Direction = l_PlayerPosition - transform.position;
+        float l_Distance = l_Direction.magnitude;
+        l_Direction.Normalize();
+        float l_DotValue = Vector3.Dot(l_Direction, transform.forward);
 
+        if (l_DotValue >= Mathf.Cos(m_SightAngle * 0.0f * Mathf.Deg2Rad))
+        {
+            Ray l_Ray = new Ray(transform.position+Vector3.up*m_EyesHeight,l_Direction);
+            //float l_Distance = Vector3.Distance(l_PlayerPosition, transform.position);
+            if (!Physics.Raycast(l_Ray,l_Distance,m_SightLayerMask.value))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
     
