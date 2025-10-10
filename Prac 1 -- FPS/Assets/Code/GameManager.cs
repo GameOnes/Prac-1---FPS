@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
         for(int i=0; i < m_DestroyObjects.childCount; i++)
         {
             GameObject.Destroy(m_DestroyObjects.GetChild(i).gameObject);
+            //m_Player.Restart();
         }
         
     }
