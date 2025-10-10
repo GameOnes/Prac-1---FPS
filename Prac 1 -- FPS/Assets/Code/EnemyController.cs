@@ -8,26 +8,6 @@ using UnityEngine.AI;
 public class EnemyController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    NavMeshAgent m_NavMeshAgent;
-    public Transform m_Target;
-    TState m_State;
-
-    public List<Transform> m_PatrolPositions;
-    int m_CurrentPatrolPositionId = 0;
-
-    public float m_SightAngle = 60.0f;
-    public LayerMask m_SightLayerMask;
-    public float m_EyesHeight = 1.0f;
-
-    public float m_MaxHearDistance;
-
-    private void Awake()
-    {
-       m_NavMeshAgent = GetComponent<NavMeshAgent>();
-  
-    }
-
     enum TState
     {
         IDLE = 0,
@@ -37,6 +17,30 @@ public class EnemyController : MonoBehaviour
         CHASE,
         HIT,
         DIE
+    }
+
+    NavMeshAgent m_NavMeshAgent;
+    public Transform m_Target;
+    TState m_State;
+
+    [Header("Distance")]
+
+
+    [Header("Patrol")]
+    public List<Transform> m_PatrolPositions;
+    int m_CurrentPatrolPositionId = 0;
+
+    [Header("Sight")]
+    public float m_SightAngle = 60.0f;
+    public LayerMask m_SightLayerMask;
+    public float m_EyesHeight = 1.0f;
+
+    [Header("Ears")]
+    public float m_MaxEarDistance;
+
+    private void Awake()
+    {
+        m_NavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
