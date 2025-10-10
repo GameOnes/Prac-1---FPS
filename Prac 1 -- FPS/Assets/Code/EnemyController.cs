@@ -38,6 +38,8 @@ public class EnemyController : MonoBehaviour
     [Header("Ears")]
     public float m_MaxEarDistance;
 
+    [Header("Life")]
+    public int m_Life = 50;
     private void Awake()
     {
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
@@ -193,10 +195,13 @@ public class EnemyController : MonoBehaviour
         return l_Distance < m_MaxEarDistance;
     }
 
-    public int m_Life = 50;
     public void Hit(int Damage)
     {
         m_Life -= Damage;
+        if (m_Life < 0)
+        {
+            SetDieState();
+        }
 
     }
 

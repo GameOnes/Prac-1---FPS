@@ -7,6 +7,6 @@ public class HitCollider : MonoBehaviour
 
     public void Hit()
     {
-        m_Enemy.Hit
+        m_Enemy.Hit(m_Damage);
     }
 }

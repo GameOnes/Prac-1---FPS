@@ -148,9 +148,10 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(l_Ray, out RaycastHit l_RayCastHit, m_ShootMaxDistance, m_ShootLayerMask.value))
         {
 
-            if(l_RayCastHit.collider.CompareTag("HitCollider"))
-                l_RaycasHit
-            CreateShootHitParticles(l_RayCastHit.point, l_RayCastHit.normal);
+            if (l_RayCastHit.collider.CompareTag("HitCollider"))
+                l_RayCastHit.collider.GetComponent<HitCollider>().Hit();
+            else
+                CreateShootHitParticles(l_RayCastHit.point, l_RayCastHit.normal);
         }
 
     }
