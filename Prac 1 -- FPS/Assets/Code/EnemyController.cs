@@ -1,3 +1,6 @@
+using JetBrains.Annotations;
+using NUnit.Framework;
+using System.Collections.Generic;
 using System.Net.NetworkInformation;
 using UnityEngine;
 using UnityEngine.AI;
@@ -9,6 +12,9 @@ public class EnemyController : MonoBehaviour
     NavMeshAgent m_NavMeshAgent;
     public Transform m_Target;
     TState m_State;
+
+    public List<Transform> m_PatrolPositions;
+    int m_CurrentPatrolPositionId = 0;
 
     private void Awake()
     {
@@ -102,13 +108,27 @@ public class EnemyController : MonoBehaviour
         void UpdateDieState()
         {
         }
-
+        public float m_MinDistanceToAttack = 5.0f;
         void SetNextChasePosition()
         {
-            Vector3 l_Position;
-            m_NavMeshAgent.destination = l_Position;
+         Vector3 l_PlayerPosition = GameManager.GetGameManager().GetPlayer().transform.position;
+         Vector3 l_Direction = l_PlayerPosition - transform.position;
+         l_Direction.Normalize();
+         Vector3 l_Position = l_PlayerPosition-l_Direction*m_MinDistanceToAttack;
+         m_NavMeshAgent.destination = l_Position;
         }
-    }
 
-    
+        void MoveToNextPatrolPosition()
+        {
+            Vector3 l_Destination = m_PatrolPositions[m_CurrentPatrolPositionId].position;
+            m_NavMeshAgent.destination = l_Destination;
+            ++m_CurrentPatrolPositionId;
+            if (m_CurrentPatrolPositionId > m_PatrolPositions.Count)
+            {
+                m_CurrentPatrolPositionId = 0;
+            }
+        }
+
+
+    }
 }
