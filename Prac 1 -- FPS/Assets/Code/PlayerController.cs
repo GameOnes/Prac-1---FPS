@@ -63,6 +63,8 @@ public class PlayerController : MonoBehaviour
             l_Player.transform.position=transform.position; // colocamos el nuevo player en la posicion del antiguo
             l_Player.transform.rotation=transform.rotation; // colocamos el nuevo player en la rotacion del antiguo
             l_Player.m_CharacterController.enabled=true; // habilitamos el character controller
+            l_Player.m_StartPosition=transform.position;
+            l_Player.m_StartRotation = transform.rotation;
             GameObject.Destroy(gameObject); // destruimos el objeto actual  
             return; 
         }
@@ -212,8 +214,10 @@ public class PlayerController : MonoBehaviour
     }
     void rESTART()
     {
-        m_CharacterController
-        transform.position = m_startPosition;
+        m_CharacterController.enabled = false;
+        transform.position = m_StartPosition;
+        transform.rotation = m_StartRotation;
+        m_CharacterController.enabled = true;
     }
 
 }
