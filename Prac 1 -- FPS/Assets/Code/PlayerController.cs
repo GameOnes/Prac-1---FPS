@@ -146,7 +146,13 @@ public class PlayerController : MonoBehaviour
         SetShootAnimation();
         Ray l_Ray = m_Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
         if (Physics.Raycast(l_Ray, out RaycastHit l_RayCastHit, m_ShootMaxDistance, m_ShootLayerMask.value))
+        {
+
+            if(l_RayCastHit.collider.CompareTag("HitCollider"))
+                l_RaycasHit
             CreateShootHitParticles(l_RayCastHit.point, l_RayCastHit.normal);
+        }
+
     }
     void CreateShootHitParticles(Vector3 Position, Vector3 Normal)
     {

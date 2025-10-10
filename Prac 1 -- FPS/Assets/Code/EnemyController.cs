@@ -193,6 +193,13 @@ public class EnemyController : MonoBehaviour
         return l_Distance < m_MaxEarDistance;
     }
 
+    public int m_Life = 50;
+    public void Hit(int Damage)
+    {
+        m_Life -= Damage;
+
+    }
+
 }
     
 
