@@ -175,16 +175,20 @@ public class PlayerController : MonoBehaviour
         m_Animation.CrossFadeQueued(m_IdleAnimationClip.name, 0.0f);
 
     }
-    public void AddAmmo(float ammo)
+    public void AddAmmo(int ammo)
     {
         
         m_AmmoCount+= ammo;
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.activeSelf)
+        if (other.CompareTag("Item"))
         {
-
+            Item l_Item = other.GetComponent<Item>();
+            if ((l_Item.CanPick()))
+            {
+                l_Item.Pick();
+            }
         }
     }
 

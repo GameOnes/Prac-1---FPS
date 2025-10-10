@@ -12,6 +12,8 @@ public abstract class Item : MonoBehaviour
 
     //Abstract: No se pueden instaciar objetos de esta clase, solo estan definidos.
     //Protegido:
+    //Publico:
+    //Privado
 }
 
 
