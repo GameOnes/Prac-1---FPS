@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
     TState m_State;
 
     [Header("Distance")]
-
+    public float m_MinDistanceToAttack = 5.0f;
 
     [Header("Patrol")]
     public List<Transform> m_PatrolPositions;
@@ -131,7 +131,6 @@ public class EnemyController : MonoBehaviour
     {
     }
 
-    public float m_MinDistanceToAttack = 5.0f;
     void SetNextChasePosition()
     {
         Vector3 l_PlayerPosition = GameManager.GetGameManager().GetPlayer().transform.position;
@@ -190,8 +189,8 @@ public class EnemyController : MonoBehaviour
     {
 
         Vector3 l_PlayerPosition = GameManager.GetGameManager().GetPlayer().transform.position;
-        //float l_Distance = l_Direction.magnitude;
-        return true;
+        float l_Distance = Vector3.Distance(l_PlayerPosition, transform.position);
+        return l_Distance < m_MaxEarDistance;
     }
 
 }
