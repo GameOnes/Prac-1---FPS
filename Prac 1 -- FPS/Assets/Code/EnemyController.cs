@@ -16,6 +16,12 @@ public class EnemyController : MonoBehaviour
     public List<Transform> m_PatrolPositions;
     int m_CurrentPatrolPositionId = 0;
 
+    public float m_SightAngle = 60.0f;
+    public LayerMask m_SightLayerMask;
+    public float m_EyesHeight = 1.0f;
+
+    public float m_MaxHearDistance;
+
     private void Awake()
     {
        m_NavMeshAgent = GetComponent<NavMeshAgent>();
@@ -66,13 +72,24 @@ public class EnemyController : MonoBehaviour
     }
     void UpdateIdleState()
     {
+        SetPatrolState();
     }
     void SetPatrolState()
     {
         m_State = TState.PATROL;
+        m_CurrentPatrolPositionId = 0;
+        MoveToNextPatrolPosition();
     }
     void UpdatePatrolState()
     {
+        if(m_NavMeshAgent.hasPath && m_NavMeshAgent.pathStatus == NavMeshPathStatus.PathComplete)
+        {
+            MoveToNextPatrolPosition();
+        }
+        if (HearsPlayer())
+        {
+            SetAlertState();
+        }
     }
     void SetAlertState()
     {
@@ -141,15 +158,13 @@ public class EnemyController : MonoBehaviour
     Deberemos comprobar tambien que el enemigo esta mirando en la direccion del player, para ello utilizaremos el 
     producto escalar entre dos vectores.
      */
-    public float m_SightAngle = 60.0f;
-    public LayerMask m_SightLayerMask;
-    public float m_EyesHeight = 1.0f;
     bool SeesPlayer()
     {
         Vector3 l_PlayerPosition = GameManager.GetGameManager().GetPlayer().transform.position;
         Vector3 l_Direction = l_PlayerPosition - transform.position;
         float l_Distance = l_Direction.magnitude;
-        l_Direction.Normalize();
+        //l_Direction.Normalize();
+        l_Direction /= l_Distance;
         float l_DotValue = Vector3.Dot(l_Direction, transform.forward);
 
         if (l_DotValue >= Mathf.Cos(m_SightAngle * 0.0f * Mathf.Deg2Rad))
@@ -162,6 +177,17 @@ public class EnemyController : MonoBehaviour
             }
         }
         return false;
+    }
+    /*
+     Crearemos el metodo HearsPlayer donde nos devolvera true o false si el player esta a una distancia minima de alerta del enemigo
+    */
+
+    bool HearsPlayer()
+    {
+
+        Vector3 l_PlayerPosition = GameManager.GetGameManager().GetPlayer().transform.position;
+        //float l_Distance = l_Direction.magnitude;
+        return true;
     }
 
 }
