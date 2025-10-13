@@ -13,8 +13,8 @@ public class MouseLock : MonoBehaviour
 
         if (Input.GetKeyDown("2"))
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+           Cursor.lockState = CursorLockMode.None;
+           Cursor.visible = true;
         }
 
 

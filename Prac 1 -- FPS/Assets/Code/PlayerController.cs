@@ -1,6 +1,8 @@
 using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
+    Vector3 m_StartPosition;
+    Quaternion m_StartRotation;
     float m_Yaw;
     float m_Pitch;
     public float m_YawSpeed;
@@ -12,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public bool m_UseInvertedPitch;
     public CharacterController m_CharacterController;
     float m_VerticalSpeed=0.0f;
+    float coyoteTime = 0.2f;
+    float coyoteTimeCounter;
 
     public float m_AmmoCount =0.0f;
 
@@ -59,9 +63,13 @@ public class PlayerController : MonoBehaviour
             l_Player.transform.position=transform.position; // colocamos el nuevo player en la posicion del antiguo
             l_Player.transform.rotation=transform.rotation; // colocamos el nuevo player en la rotacion del antiguo
             l_Player.m_CharacterController.enabled=true; // habilitamos el character controller
+            l_Player.m_StartPosition=transform.position;
+            l_Player.m_StartRotation = transform.rotation;
             GameObject.Destroy(gameObject); // destruimos el objeto actual  
             return; 
         }
+        m_StartPosition = transform.position;
+        m_StartRotation = transform.rotation;
 
         DontDestroyOnLoad(gameObject); // hace que el objeto no se destruya al cargar una nueva escena
         GameManager.GetGameManager().SetPlayer(this); // asignamos el player al game manager
@@ -144,7 +152,14 @@ public class PlayerController : MonoBehaviour
         SetShootAnimation();
         Ray l_Ray = m_Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
         if (Physics.Raycast(l_Ray, out RaycastHit l_RayCastHit, m_ShootMaxDistance, m_ShootLayerMask.value))
-            CreateShootHitParticles(l_RayCastHit.point, l_RayCastHit.normal);
+        {
+
+            if (l_RayCastHit.collider.CompareTag("HitCollider"))
+                l_RayCastHit.collider.GetComponent<HitCollider>().Hit();
+            else
+                CreateShootHitParticles(l_RayCastHit.point, l_RayCastHit.normal);
+        }
+
     }
     void CreateShootHitParticles(Vector3 Position, Vector3 Normal)
     {
@@ -173,17 +188,36 @@ public class PlayerController : MonoBehaviour
         m_Animation.CrossFadeQueued(m_IdleAnimationClip.name, 0.0f);
 
     }
-    public void AddAmmo(float ammo)
+    public void AddAmmo(int ammo)
     {
         
         m_AmmoCount+= ammo;
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.activeSelf)
+        if (other.CompareTag("Item"))
         {
-
+            Item l_Item = other.GetComponent<Item>();
+            if ((l_Item.CanPick()))
+            {
+                l_Item.Pick();
+            }
         }
+        else if (other.CompareTag("DeadZone"))
+        {
+            Kill();
+        }
+    }
+    void Kill()
+    {
+        GameManager.GetGameManager().ReloadLevel();
+    }
+    void rESTART()
+    {
+        m_CharacterController.enabled = false;
+        transform.position = m_StartPosition;
+        transform.rotation = m_StartRotation;
+        m_CharacterController.enabled = true;
     }
 
 }
