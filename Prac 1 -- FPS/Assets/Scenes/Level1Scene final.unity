@@ -1592,6 +1592,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BulletHole
       objectReference: {fileID: 0}
+    - target: {fileID: 67259755632067560, guid: a65fbf02016625d48ad9cc008ae2802d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8984281492676463013, guid: a65fbf02016625d48ad9cc008ae2802d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.8338733
