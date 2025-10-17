@@ -209,7 +209,7 @@ public class EnemyController : MonoBehaviour
         Vector3 l_PlayerPosition = GameManager.GetGameManager().GetPlayer().transform.position;
         Vector3 l_Direction = l_PlayerPosition - transform.position;
         float l_Distance = l_Direction.magnitude;
-        //l_Direction.Normalize();
+        l_Direction.Normalize();
         l_Direction /= l_Distance;
         float l_DotValue = Vector3.Dot(l_Direction, transform.forward);
 
