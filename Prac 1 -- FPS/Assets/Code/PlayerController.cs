@@ -26,12 +26,13 @@ public class PlayerController : MonoBehaviour
 
     [Header("Camera")]
     public Camera m_Camera;
-    public float m_ShootMaxDistance=50.0f;
 
     [Header("Shoot")]
+    public float m_ShootMaxDistance = 50.0f;
     public LayerMask m_ShootLayerMask;
     public GameObject m_ShootParticles;
- 
+    public GameObject m_ShootParticlesPool;
+
     [Header("Input")]
     public KeyCode m_LeftKeyCode=KeyCode.A;
     public KeyCode m_RightKeyCode=KeyCode.D;
@@ -56,6 +57,9 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        //m_ShootParticlesPool = new PoolElements();
+        //m_ShootParticlesPool.Init(25, m_ShootParticles);
+        
         PlayerController l_Player=GameManager.GetGameManager().GetPlayer();
         if (l_Player!=null) // si ya existe un player lo encontramos y destruimos
         {
@@ -163,8 +167,10 @@ public class PlayerController : MonoBehaviour
     }
     void CreateShootHitParticles(Vector3 Position, Vector3 Normal)
     {
-        GameObject l_ShootParticles = GameObject.Instantiate(m_ShootParticles);
+
+        GameObject l_ShootParticles = m_ShootParticlesPool.GetNextElement();
         l_ShootParticles.transform.position = Position;
+        l_ShootParticles.transform.rotation = Quaternion.LookRotation(Normal);
         l_ShootParticles.SetActive(true);
     }
    

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    static private GameManager m_GameController; // siempre debería ser privado porque si no seria accesible desde cualquier clase rompiendo con el patron singleton
+    static private GameManager m_GameManager; // siempre debería ser privado porque si no seria accesible desde cualquier clase rompiendo con el patron singleton
     PlayerController m_Player;
     public Transform m_DestroyObjects; // cada vez que recarga una escena destruye todos los objetos hijos dentro de la escena.
     public Fade m_Fade;
@@ -12,19 +12,19 @@ public class GameManager : MonoBehaviour
     {
         //var un indicador para crear variables.
         // un singleton es una clase estatica publica que solo puede tener una instancia
-        if(m_GameController == null) // si ya existe una instancia de GameController
+        if(m_GameManager == null) // si ya existe una instancia de GameController
         {
             GameObject.Destroy(gameObject); // destruye el objeto actual
             return; // sale del metodo
         }
-        m_GameController = this; // si no existe una instancia la crea
+        m_GameManager = this; // si no existe una instancia la crea
         DontDestroyOnLoad(gameObject); // hace que el objeto no se destruya al cargar una nueva escena
 
     }
     public static GameManager GetGameManager() // se usa un metodo estatico para acceder a la instancia desde otras clases.
                                                // una instancia es un objeto creado a partir de una clase.
     {
-        return m_GameController;
+        return m_GameManager;
     }
     public void ReloadLevel()
     {
@@ -32,7 +32,10 @@ public class GameManager : MonoBehaviour
         {
             GameObject.Destroy(m_DestroyObjects.GetChild(i).gameObject);
             m_Player.Restart();
-            //m_Fade.FadeOut(())
+            m_Fade.FadeOut(() =>
+            {
+                m_Fade.gameObject.SetActive(false);
+            });
         }
         
     }
