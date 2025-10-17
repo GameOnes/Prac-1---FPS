@@ -6581,6 +6581,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3808692073571510929, guid: 9961c44071c08d24fbb8909295c6dff0, type: 3}
+      propertyPath: m_Animations.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808692073571510929, guid: 9961c44071c08d24fbb8909295c6dff0, type: 3}
+      propertyPath: 'm_Animations.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7400000, guid: b8ea39f0e44e3d744825521e44946402, type: 2}
     - target: {fileID: 4523660881305587985, guid: 9961c44071c08d24fbb8909295c6dff0, type: 3}
       propertyPath: m_Name
       value: AmmoItem

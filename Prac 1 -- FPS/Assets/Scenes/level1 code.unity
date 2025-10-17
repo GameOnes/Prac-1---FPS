@@ -1616,7 +1616,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 4
   m_Animation: {fileID: 7400000, guid: b8ea39f0e44e3d744825521e44946402, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: b8ea39f0e44e3d744825521e44946402, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -1981,6 +1982,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damage: 30
+  m_Player: {fileID: 0}
   m_Enemy: {fileID: 0}
 --- !u!1001 &1645765975
 PrefabInstance:
@@ -2284,6 +2286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damage: 25
+  m_Player: {fileID: 0}
   m_Enemy: {fileID: 0}
 --- !u!1 &1944952439
 GameObject:
@@ -2681,6 +2684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damage: 50
+  m_Player: {fileID: 0}
   m_Enemy: {fileID: 722973643}
 --- !u!1 &2086308631
 GameObject:
@@ -2866,6 +2870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Damage: 25
+  m_Player: {fileID: 0}
   m_Enemy: {fileID: 0}
 --- !u!1001 &1942506620411522758
 PrefabInstance:
