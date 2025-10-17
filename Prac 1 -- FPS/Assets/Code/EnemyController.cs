@@ -42,14 +42,18 @@ public class EnemyController : MonoBehaviour
     public int m_Life = 50;
     public int m_MaxLife = 50;
 
-    [Header("Life UI")]
-    public Transform m_LifeBarTRansform;
+    [Header("LifeBar")]
+    public Transform m_LifeBarTransform;
+    public LifeBarElementUI m_LifeBarElementUI;
 
     private void Awake()
     {
         m_NavMeshAgent = GetComponent<NavMeshAgent>();
     }
-
+    public void Start()
+    {
+        SetIdleState();
+    }
     private void Update()
     {
         switch (m_State)
@@ -76,11 +80,11 @@ public class EnemyController : MonoBehaviour
                 UpdateDieState();
                 break;
         }
-        updateLifeBarUI();
+        UpdateLifeBarUI();
     }
     void UpdateLifeBarUI()
     {
-        m_LifeBarElementUI.Show(m_LifeBarTransform.position);
+        m_LifeBarElementUI.Show(m_LifeBarTransform.position, m_Life/(float)m_MaxLife);
     }
     void SetIdleState()
     {
