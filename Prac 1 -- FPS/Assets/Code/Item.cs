@@ -7,13 +7,6 @@ public abstract class Item : MonoBehaviour
         GameObject.Destroy(gameObject);
     }
     public abstract bool CanPick();
-
-
-
-    //Abstract: No se pueden instaciar objetos de esta clase, solo estan definidos.
-    //Protegido:
-    //Publico:
-    //Privado
 }
 
 
