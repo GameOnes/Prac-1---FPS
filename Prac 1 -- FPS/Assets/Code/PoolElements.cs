@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,5 +24,10 @@ public class PoolElements
         if (m_CurrentElementId > m_Elements.Count)
             m_CurrentElementId = 0;
         return l_GameObject;
+    }
+
+    public static implicit operator GameObject(PoolElements v)
+    {
+        throw new NotImplementedException();
     }
 }
