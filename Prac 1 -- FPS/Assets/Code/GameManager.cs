@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     static private GameManager m_GameController; // siempre debería ser privado porque si no seria accesible desde cualquier clase rompiendo con el patron singleton
     PlayerController m_Player;
     public Transform m_DestroyObjects; // cada vez que recarga una escena destruye todos los objetos hijos dentro de la escena.
+    public Fade m_Fade;
     private void Awake()
     {
         //var un indicador para crear variables.
@@ -30,7 +31,8 @@ public class GameManager : MonoBehaviour
         for(int i=0; i < m_DestroyObjects.childCount; i++)
         {
             GameObject.Destroy(m_DestroyObjects.GetChild(i).gameObject);
-            //m_Player.Restart();
+            m_Player.Restart();
+            //m_Fade.FadeOut(())
         }
         
     }
