@@ -216,7 +216,7 @@ public class PlayerController : MonoBehaviour
         });
 
     }
-    void Restart()
+    public void Restart()
     {
         m_CharacterController.enabled = false;
         transform.position = m_StartPosition;

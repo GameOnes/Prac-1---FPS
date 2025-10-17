@@ -2897,9 +2897,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3980661793780767658, guid: da810fdd52b8b8e4a9f0021d5e2d543c, type: 3}
+      propertyPath: m_Fade
+      value: 
+      objectReference: {fileID: 982579049}
     - target: {fileID: 7705914743227558632, guid: da810fdd52b8b8e4a9f0021d5e2d543c, type: 3}
       propertyPath: m_Name
-      value: GameController
+      value: GameManager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
