@@ -688,6 +688,8 @@ MonoBehaviour:
   m_MaxLife: 50
   m_LifeBarTransform: {fileID: 0}
   m_LifeBarElementUI: {fileID: 0}
+  m_MeshRenderers: []
+  DeadTime: 1.5
 --- !u!195 &722973644
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1512,7 +1514,7 @@ PrefabInstance:
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_IdleAnimationClip
       value: 
-      objectReference: {fileID: 7400000, guid: f41cf36f8164be54aa02c16731e81a94, type: 2}
+      objectReference: {fileID: 7400000, guid: 0243cf34da0bfce4aaf3f47bcdc90389, type: 2}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_ShootAnimationClip
       value: 
@@ -1555,8 +1557,11 @@ Animation:
   m_GameObject: {fileID: 1056244237}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 0}
-  m_Animations: []
+  m_Animation: {fileID: 7400000, guid: 0243cf34da0bfce4aaf3f47bcdc90389, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 0243cf34da0bfce4aaf3f47bcdc90389, type: 2}
+  - {fileID: 7400000, guid: 3094c142170743846b4b6d3a265a1f63, type: 2}
+  - {fileID: 7400000, guid: 46bf45cbdf9920f4294182788cc71ef9, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -2418,6 +2423,8 @@ MonoBehaviour:
   m_MaxLife: 50
   m_LifeBarTransform: {fileID: 0}
   m_LifeBarElementUI: {fileID: 0}
+  m_MeshRenderers: []
+  DeadTime: 1.5
 --- !u!4 &1973453116
 Transform:
   m_ObjectHideFlags: 0
