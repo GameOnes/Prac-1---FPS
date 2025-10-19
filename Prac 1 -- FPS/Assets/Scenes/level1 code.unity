@@ -1516,6 +1516,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1056244238}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_MaxAmmoCount
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_IdleAnimationClip
       value: 
       objectReference: {fileID: 7400000, guid: 0243cf34da0bfce4aaf3f47bcdc90389, type: 2}

@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     float coyoteTimeCounter;
 
     public float m_AmmoCount =0.0f;
+    public float m_MaxAmmoCount =0.0f;
 
     bool m_AngleLocked=false;
     public float m_Speed;
@@ -141,12 +142,19 @@ public class PlayerController : MonoBehaviour
     }
     bool CanReload()
     {
+        if(m_MaxAmmoCount>0)
         return true;
+        else return false;
     }
     void Reload()
     {
-        SetReloadAnimation();
-        m_AmmoCount=20;
+        if (CanReload())
+        {
+            SetReloadAnimation();
+            m_AmmoCount = m_AmmoCount + 20;
+            m_MaxAmmoCount = m_MaxAmmoCount - 20;
+        }
+        
     }
     bool CanShoot()
     {
