@@ -3049,6 +3049,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 642195880}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_AmmoCount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_Animation
       value: 
       objectReference: {fileID: 1056244238}
