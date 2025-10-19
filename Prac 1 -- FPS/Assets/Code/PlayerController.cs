@@ -146,24 +146,32 @@ public class PlayerController : MonoBehaviour
     void Reload()
     {
         SetReloadAnimation();
+        m_AmmoCount=20;
     }
     bool CanShoot()
     {
+        if(m_AmmoCount>0)
         return true;
+        else return false;
     }
 
     void Shoot()
     {
-        SetShootAnimation();
-        Ray l_Ray = m_Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
-        if (Physics.Raycast(l_Ray, out RaycastHit l_RayCastHit, m_ShootMaxDistance, m_ShootLayerMask.value))
+        if (CanShoot())
         {
+            SetShootAnimation();
+            m_AmmoCount = m_AmmoCount - 1;
+            Ray l_Ray = m_Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
+            if (Physics.Raycast(l_Ray, out RaycastHit l_RayCastHit, m_ShootMaxDistance, m_ShootLayerMask.value))
+            {
 
-            if (l_RayCastHit.collider.CompareTag("HitCollider"))
-                l_RayCastHit.collider.GetComponent<HitCollider>().Hit();
-            else
-                CreateShootHitParticles(l_RayCastHit.point, l_RayCastHit.normal);
+                if (l_RayCastHit.collider.CompareTag("HitCollider"))
+                    l_RayCastHit.collider.GetComponent<HitCollider>().Hit();
+                else
+                    CreateShootHitParticles(l_RayCastHit.point, l_RayCastHit.normal);
+            }
         }
+
 
     }
     void CreateShootHitParticles(Vector3 Position, Vector3 Normal)

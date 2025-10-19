@@ -1508,6 +1508,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_AmmoCount
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_Animation
       value: 
       objectReference: {fileID: 1056244238}
@@ -1523,6 +1527,10 @@ PrefabInstance:
       propertyPath: m_ReloadAnimationClip
       value: 
       objectReference: {fileID: 7400000, guid: 46bf45cbdf9920f4294182788cc71ef9, type: 2}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_ShootLayerMask.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7582268826133097008, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_Layer
       value: 3
