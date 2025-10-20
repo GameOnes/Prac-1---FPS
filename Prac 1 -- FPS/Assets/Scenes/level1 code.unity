@@ -1483,6 +1483,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4746606565941965665, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -6.6475353
+      objectReference: {fileID: 0}
     - target: {fileID: 4847203778290019504, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -1590,6 +1594,7 @@ GameObject:
   - component: {fileID: 1117277626}
   - component: {fileID: 1117277625}
   - component: {fileID: 1117277624}
+  - component: {fileID: 1117277627}
   m_Layer: 0
   m_Name: AmmoItem
   m_TagString: Untagged
@@ -1651,6 +1656,21 @@ Transform:
   - {fileID: 270165871}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1117277627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117277623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209d6b2007f6e664cb6507a21d8e2a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ItAnimation: {fileID: 1117277625}
+  m_ItemAnimationClip: {fileID: 7400000, guid: b8ea39f0e44e3d744825521e44946402, type: 2}
+  m_AmmoCount: 60
 --- !u!1 &1372725661
 GameObject:
   m_ObjectHideFlags: 0
@@ -2406,6 +2426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1973453116}
   - component: {fileID: 1973453115}
+  - component: {fileID: 1973453117}
   m_Layer: 0
   m_Name: PatrolPositions
   m_TagString: Untagged
@@ -2463,6 +2484,28 @@ Transform:
   - {fileID: 834187562}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!195 &1973453117
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973453114}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &2016669163
 GameObject:
   m_ObjectHideFlags: 0
