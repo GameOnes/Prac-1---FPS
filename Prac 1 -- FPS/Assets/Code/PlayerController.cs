@@ -55,6 +55,11 @@ public class PlayerController : MonoBehaviour
     public AnimationClip m_IdleAnimationClip;
     public AnimationClip m_ShootAnimationClip;
     public AnimationClip m_ReloadAnimationClip;
+    [Header("Health")]
+    public float m_MaxHealth = 100.0f;
+    public float m_CurrentHealth;
+    public float m_MaxShield = 100.0f;
+    public float m_CurrentShield;
 
 
     void Start()
@@ -215,6 +220,19 @@ public class PlayerController : MonoBehaviour
         m_MaxAmmoCount+= ammo;
         ammo = ammo + 60;
     }
+    void GetDamage( float realDamage)
+    {
+        if(m_CurrentShield >= 0)
+        {
+           m_CurrentHealth  = m_CurrentHealth - (realDamage / 0.25f);
+           m_CurrentShield  = m_CurrentShield - (realDamage / 0.75f);
+
+        }
+        else
+        {
+            m_CurrentHealth= m_CurrentHealth - realDamage;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Item"))
@@ -230,6 +248,7 @@ public class PlayerController : MonoBehaviour
             Kill();
         }
     }
+
     void Kill()
     {
         GameManager.GetGameManager().m_Fade.FadeIn(() => 
