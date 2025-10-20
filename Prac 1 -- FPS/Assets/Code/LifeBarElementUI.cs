@@ -5,7 +5,10 @@ public class LifeBarElementUI : MonoBehaviour
 {
     public RectTransform m_LifeBarUIRectTransform;
     public Image m_ForegroundLifeBarUI;
-    
+
+    public RectTransform m_ShieldBarUIRectTransform;
+    public Image m_ForegroundShieldBarUI;
+
     public void Show(Vector3 WorldPosition, float LifePct)
     {
         Vector3 l_LifeBarViewportPosition = GameManager.GetGameManager().GetPlayer().m_Camera.WorldToViewportPoint(WorldPosition);
