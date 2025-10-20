@@ -81,7 +81,6 @@ public class PlayerController : MonoBehaviour
         DontDestroyOnLoad(gameObject); // hace que el objeto no se destruya al cargar una nueva escena
         GameManager.GetGameManager().SetPlayer(this); // asignamos el player al game manager
         Cursor.lockState=CursorLockMode.Locked;
-        SetIdleAnimation();
     }
     void Update()
     {
@@ -152,7 +151,7 @@ public class PlayerController : MonoBehaviour
         if (CanReload())
         {
             SetReloadAnimation();
-            m_AmmoCount = m_AmmoCount + 20;
+            m_AmmoCount = 20;
             m_MaxAmmoCount = m_MaxAmmoCount - 20;
         }
         
@@ -197,25 +196,23 @@ public class PlayerController : MonoBehaviour
     //mientras que con animator tienes que crear un controlador de animacion y es mas pesado, mas util para crear animaciones de por ejemplo un menu
     void SetIdleAnimation()
     {
-        m_Animation.CrossFade(m_IdleAnimationClip.name,0.0f);
+        m_Animation.CrossFade(m_IdleAnimationClip.name,0.1f);
         
     }
     void SetReloadAnimation()
     {
         m_Animation.CrossFade(m_ReloadAnimationClip.name, 0.1f);
-        m_Animation.CrossFadeQueued(m_IdleAnimationClip.name, 0.0f);
     }
 
     void SetShootAnimation()
     {
         m_Animation.CrossFade(m_ShootAnimationClip.name, 0.1f);
-        m_Animation.CrossFadeQueued(m_IdleAnimationClip.name, 0.0f);
 
     }
     public void AddAmmo(int ammo)
     {
-        
-        m_AmmoCount+= ammo;
+        m_MaxAmmoCount+= ammo;
+        ammo = ammo + 80;
     }
     void GetDamage( float realDamage)
     {
