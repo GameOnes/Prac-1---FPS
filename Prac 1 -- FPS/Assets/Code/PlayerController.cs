@@ -206,7 +206,6 @@ public class PlayerController : MonoBehaviour
     void SetReloadAnimation()
     {
         m_Animation.CrossFade(m_ReloadAnimationClip.name, 0.1f);
-        m_Animation.CrossFadeQueued(m_ShootAnimationClip.name, 0.1f);
     }
 
     void SetShootAnimation()
