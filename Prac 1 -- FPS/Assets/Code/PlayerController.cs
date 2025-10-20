@@ -85,7 +85,6 @@ public class PlayerController : MonoBehaviour
         DontDestroyOnLoad(gameObject); // hace que el objeto no se destruya al cargar una nueva escena
         GameManager.GetGameManager().SetPlayer(this); // asignamos el player al game manager
         Cursor.lockState=CursorLockMode.Locked;
-        SetIdleAnimation();
     }
     void Update()
     {
@@ -218,7 +217,7 @@ public class PlayerController : MonoBehaviour
     public void AddAmmo(int ammo)
     {
         m_MaxAmmoCount+= ammo;
-        ammo = ammo + 60;
+        ammo = ammo + 80;
     }
     void GetDamage( float realDamage)
     {
