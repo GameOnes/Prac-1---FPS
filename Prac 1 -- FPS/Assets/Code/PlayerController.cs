@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     float coyoteTimeCounter;
 
     public float m_AmmoCount =0.0f;
+    public float m_MaxAmmoCount =0.0f;
 
     bool m_AngleLocked=false;
     public float m_Speed;
@@ -141,29 +142,44 @@ public class PlayerController : MonoBehaviour
     }
     bool CanReload()
     {
+        if(m_MaxAmmoCount>0)
         return true;
+        else return false;
     }
     void Reload()
     {
-        SetReloadAnimation();
+        if (CanReload())
+        {
+            SetReloadAnimation();
+            m_AmmoCount = m_AmmoCount + 20;
+            m_MaxAmmoCount = m_MaxAmmoCount - 20;
+        }
+        
     }
     bool CanShoot()
     {
+        if(m_AmmoCount>0)
         return true;
+        else return false;
     }
 
     void Shoot()
     {
-        SetShootAnimation();
-        Ray l_Ray = m_Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
-        if (Physics.Raycast(l_Ray, out RaycastHit l_RayCastHit, m_ShootMaxDistance, m_ShootLayerMask.value))
+        if (CanShoot())
         {
+            SetShootAnimation();
+            m_AmmoCount = m_AmmoCount - 1;
+            Ray l_Ray = m_Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
+            if (Physics.Raycast(l_Ray, out RaycastHit l_RayCastHit, m_ShootMaxDistance, m_ShootLayerMask.value))
+            {
 
-            if (l_RayCastHit.collider.CompareTag("HitCollider"))
-                l_RayCastHit.collider.GetComponent<HitCollider>().Hit();
-            else
-                CreateShootHitParticles(l_RayCastHit.point, l_RayCastHit.normal);
+                if (l_RayCastHit.collider.CompareTag("HitCollider"))
+                    l_RayCastHit.collider.GetComponent<HitCollider>().Hit();
+                else
+                    CreateShootHitParticles(l_RayCastHit.point, l_RayCastHit.normal);
+            }
         }
+
 
     }
     void CreateShootHitParticles(Vector3 Position, Vector3 Normal)
