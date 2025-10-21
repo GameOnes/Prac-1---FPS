@@ -80,10 +80,10 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 0}
-    - time: 1.3333334
-      value: {fileID: 0}
-    attribute: m_ItemAnimationAnimationClip
+      value: {fileID: 7400000}
+    - time: 1.35
+      value: {fileID: 7400000}
+    attribute: m_ItemAnimationClip
     path: 
     classID: 114
     script: {fileID: 11500000, guid: 209d6b2007f6e664cb6507a21d8e2a52, type: 3}
@@ -106,7 +106,7 @@ AnimationClip:
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
       path: 0
-      attribute: 595127277
+      attribute: 3118830281
       script: {fileID: 11500000, guid: 209d6b2007f6e664cb6507a21d8e2a52, type: 3}
       typeID: 114
       customType: 0
@@ -123,14 +123,14 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 0}
-    - {fileID: 0}
+    - {fileID: 7400000}
+    - {fileID: 7400000}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.35
+    m_StopTime: 1.3666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

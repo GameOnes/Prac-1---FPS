@@ -45,8 +45,6 @@ public class PlayerController : MonoBehaviour
     public KeyCode m_ReloadKeyCode = KeyCode.R;
     public int m_ShootMouseButton = 0;
 
-    public int m_PlayerLife=100;
-
     [Header("Debug Input")]
     public KeyCode m_DebugLockAngleKeyCode=KeyCode.I;
 
@@ -55,11 +53,21 @@ public class PlayerController : MonoBehaviour
     public AnimationClip m_IdleAnimationClip;
     public AnimationClip m_ShootAnimationClip;
     public AnimationClip m_ReloadAnimationClip;
-    
 
+    [Header("Life & Shield")]
+    public float m_MaxHealth = 100.0f;
+    public float m_CurrentHealth;
+    public float m_MaxShield = 100.0f;
+    public float m_CurrentShield;
+    LifeBarElementUI lifeBar;
+    Vector3 m_Health;
 
     void Start()
     {
+        lifeBar = GetComponent<LifeBarElementUI>();
+        m_CurrentHealth = m_MaxHealth;
+        m_CurrentShield = m_MaxShield;
+
         m_ShootParticlesPool = new PoolElements();
         m_ShootParticlesPool.Init(25, m_ShootParticles);
         
@@ -214,10 +222,42 @@ public class PlayerController : MonoBehaviour
         m_MaxAmmoCount+= ammo;
         ammo = ammo + 80;
     }
-    void GetDamage( float realDamage)
+
+    public void AddShield(int shield)
     {
-        
+        m_CurrentShield = shield;
+        shield = shield + 100;
     }
+
+    public void AddLife(int life)
+    {
+        m_CurrentHealth = life;
+        life = 100;
+    }
+
+    public void GetDamage( float realDamage)
+    {
+        if (m_CurrentShield >= 0)
+        {
+            m_CurrentHealth = m_CurrentHealth - (realDamage * 0.25f);
+            m_CurrentShield = m_CurrentShield - (realDamage * 0.75f);
+
+            if (m_CurrentShield < 0)
+            {
+                float extradmg = -m_CurrentShield;
+                m_CurrentShield = 0;
+                m_CurrentHealth -= m_CurrentHealth + extradmg;
+            }
+
+
+        }
+        else
+        {
+            m_CurrentHealth = m_CurrentHealth - realDamage;
+        }
+        lifeBar.Show(m_Health, realDamage);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Item"))

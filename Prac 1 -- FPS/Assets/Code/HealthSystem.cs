@@ -11,7 +11,7 @@ public class HealthSystem : MonoBehaviour
     Vector3 m_Health;
     void Awake()
     {
-         lifeBar= GetComponent<LifeBarElementUI>();
+        lifeBar= GetComponent<LifeBarElementUI>();
         m_CurrentHealth = m_MaxHealth;
         m_CurrentShield = m_MaxShield;
     }
