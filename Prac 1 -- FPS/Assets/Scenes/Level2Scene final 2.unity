@@ -910,6 +910,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 5c368ed258c3c5749a0986930590e67f, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 5c368ed258c3c5749a0986930590e67f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -13606,6 +13610,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoItem
       objectReference: {fileID: 0}
+    - target: {fileID: 5483927892829247426, guid: 9961c44071c08d24fbb8909295c6dff0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b0623b3941e973345bae6681c1cf1f17, type: 2}
     - target: {fileID: 6951059468762499403, guid: 9961c44071c08d24fbb8909295c6dff0, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.3
