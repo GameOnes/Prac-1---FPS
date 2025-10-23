@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -5,16 +6,16 @@ using UnityEngine.UIElements;
 public class ShootingGallery : MonoBehaviour
 {
     [Header("Time")]
-    private float m_TimeLimit = 60;
-    private float m_TimeRemaining;
+    [SerializeField] private float time;
+    private float initialTime;
 
     [Header("Points")]
     private int m_Count;
     private int m_Goal;
 
     [Header("Text")]
-    [SerializeField] private TextMeshPro m_ScoreText;
-    [SerializeField] private TextMeshPro m_TimeText;
+    [SerializeField] private TextMeshProUGUI m_ScoreText;
+    [SerializeField] private TextMeshProUGUI m_TimeText;
 
     [Header("Gallery")]
     private bool m_GalleryOn;
@@ -26,11 +27,11 @@ public class ShootingGallery : MonoBehaviour
     void Start()
     {
         m_Count = 0;
-        m_TimeRemaining = m_TimeLimit;
+        initialTime = time;
         m_Goal = 100;
 
         m_ScoreText.text = "Score:" + m_Count;
-        m_TimeText.text = "Time: " + m_TimeRemaining + "s";
+        m_TimeText.text = string.Format("{0:00}", time) + "s"; ;
 
         m_GalleryOn = false;
     }
@@ -40,44 +41,52 @@ public class ShootingGallery : MonoBehaviour
     {
         if (m_GalleryOn == true)
         {
-            m_TimeRemaining -= Time.deltaTime;
-            m_TimeRemaining = Mathf.Clamp(m_TimeRemaining, 0, m_TimeLimit);
+           time -= Time.deltaTime;
+            time = Mathf.Clamp(time, 0,Mathf.Infinity);
 
-            m_TimeText.text = "Time: " + m_TimeRemaining + "s";
+            m_TimeText.text = "Time: " + string.Format("{0:00}",time) + "s";
 
-            if (m_TimeRemaining <= 0)
+            if(m_Count >= m_Goal)
+            {
+                Jackpot();
+                time = initialTime;
+
+            }
+            if (time <= 0)
             {
                 GameOver();
-                m_TimeRemaining = m_TimeLimit;
+                time = initialTime;
             }
-            if (m_Count >= m_Goal)
-            {
-                GameOver();
-                m_TimeRemaining = m_TimeLimit;
-            }
+           
         }
 
     }
 
     public void GainPoits(int count)
     {
-        if (m_GalleryOn == true)
-        {
-            m_Count += count;
-            m_ScoreText.text = "Score" + count;
-        }
+        
+            Jackpot();
+           m_Count += count;
+            m_ScoreText.text = "Score" + m_Count;
+        
     }
 
     public void GameOver()
     {
         m_GalleryOn = false;
+        m_Count = 0;
+        m_ScoreText.text = "Score:" + m_Count;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.tag == "Player")
         {
             m_GalleryOn = true;
+        }
+        else
+        {
+            m_GalleryOn = false;
         }
     }
 

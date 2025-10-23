@@ -82,7 +82,7 @@ public class PlayerController : MonoBehaviour
 
         m_ShootParticlesPool = new PoolElements();
         m_ShootParticlesPool.Init(25, m_ShootParticles);
-        
+        GameManager gm = GameManager.GetGameManager();
         PlayerController l_Player=GameManager.GetGameManager().GetPlayer();
         if (l_Player!=null) // si ya existe un player lo encontramos y destruimos
         {

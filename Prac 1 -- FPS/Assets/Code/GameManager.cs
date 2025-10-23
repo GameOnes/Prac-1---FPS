@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
     PlayerController m_Player;
     public Transform m_DestroyObjects; // cada vez que recarga una escena destruye todos los objetos hijos dentro de la escena.
     public Fade m_Fade;
+
+    [SerializeField] private GameObject galeryCanvas;
+
     private void Awake()
     {
         //var un indicador para crear variables.
@@ -19,7 +22,7 @@ public class GameManager : MonoBehaviour
         }
         m_GameManager = this; // si no existe una instancia la crea
         DontDestroyOnLoad(gameObject); // hace que el objeto no se destruya al cargar una nueva escena
-
+        if (galeryCanvas != null) { galeryCanvas.SetActive(false); }
     }
     public static GameManager GetGameManager() // se usa un metodo estatico para acceder a la instancia desde otras clases.
                                                // una instancia es un objeto creado a partir de una clase.
@@ -57,6 +60,14 @@ public class GameManager : MonoBehaviour
     public void SetPlayer(PlayerController player)
     {
        m_Player=player;
+    }
+    public void ActiveGallery()
+    {
+       galeryCanvas.SetActive(true);
+    }
+    public void DeactiveGallery()
+    {
+        galeryCanvas.SetActive(false);
     }
 }
 
