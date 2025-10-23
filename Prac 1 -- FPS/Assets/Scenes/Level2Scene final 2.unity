@@ -5806,6 +5806,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_Anchor
+      value: 
+      objectReference: {fileID: 2031420100}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 790203320}
@@ -5818,9 +5822,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790203321}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_AmmoNumber
+      value: 
+      objectReference: {fileID: 1783301976}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_HealthNumber
+      value: 
+      objectReference: {fileID: 1400659268}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_MaxAmmoCount
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_ShieldNumber
+      value: 
+      objectReference: {fileID: 1058417416}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_CurrentHealth
       value: 100
@@ -9713,7 +9729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LifeBarUIRectTransform: {fileID: 1974218437}
   m_ForegroundLifeBarUI: {fileID: 1678078540}
-  m_ForegroundRect: {fileID: 0}
+  m_ForegroundRect: {fileID: 1678078539}
 --- !u!1001 &1237359873
 PrefabInstance:
   m_ObjectHideFlags: 0
