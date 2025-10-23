@@ -119,18 +119,14 @@ public class EnemyController : MonoBehaviour
     }
     void UpdatePatrolState()
     {
-        if(m_NavMeshAgent.hasPath && m_NavMeshAgent.pathStatus == NavMeshPathStatus.PathComplete)
+        if (!m_NavMeshAgent.hasPath && m_NavMeshAgent.pathStatus == NavMeshPathStatus.PathComplete)
         {
             MoveToNextPatrolPosition();
+            SetIdleState();
         }
+
         if (HearsPlayer())
-        {
             SetAlertState();
-        }
-        else
-        {
-            SetPatrolState();
-        }
     }
     void SetAlertState()
     {
