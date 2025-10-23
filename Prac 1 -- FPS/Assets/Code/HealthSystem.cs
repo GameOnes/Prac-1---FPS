@@ -8,10 +8,12 @@ public class HealthSystem : MonoBehaviour
     public float m_MaxShield = 100.0f;
     public float m_CurrentShield;
     LifeBarElementUI lifeBar;
+    PlayerController player;
     Vector3 m_Health;
     void Awake()
     {
         lifeBar= GetComponent<LifeBarElementUI>();
+        player= GetComponent<PlayerController>();
         m_CurrentHealth = m_MaxHealth;
         m_CurrentShield = m_MaxShield;
     }
@@ -44,7 +46,7 @@ public class HealthSystem : MonoBehaviour
     }
     public void Death()
     {
-
+        Respawn();
     }
 
 }
