@@ -8610,7 +8610,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1136169627}
-  - component: {fileID: 1136169626}
   m_Layer: 0
   m_Name: PatrolPositions
   m_TagString: Untagged
@@ -8618,39 +8617,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1136169626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1136169625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c6b24a08661e0447bd0ca5fa15b42e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Target: {fileID: 0}
-  m_MinDistanceToAttack: 5
-  m_PatrolPositions:
-  - {fileID: 892148632}
-  - {fileID: 975195528}
-  - {fileID: 881277427}
-  - {fileID: 1066323805}
-  - {fileID: 1024142566}
-  - {fileID: 816894651}
-  m_SightAngle: 60
-  m_SightLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
-  m_EyesHeight: 1
-  m_MaxEarDistance: 0
-  m_Life: 50
-  m_MaxLife: 50
-  m_LifeBarTransform: {fileID: 0}
-  m_LifeBarElementUI: {fileID: 0}
-  m_MeshRenderers: []
-  DeadTime: 1.5
 --- !u!4 &1136169627
 Transform:
   m_ObjectHideFlags: 0
