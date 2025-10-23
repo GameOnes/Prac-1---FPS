@@ -127,10 +127,6 @@ public class EnemyController : MonoBehaviour
         {
             SetAlertState();
         }
-        else
-        {
-            SetPatrolState();
-        }
     }
     void SetAlertState()
     {
