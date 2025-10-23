@@ -19,6 +19,7 @@ public class ShootingGallery : MonoBehaviour
     [Header("Gallery")]
     private bool m_GalleryOn;
     private Rewards m_Rewards;
+    [SerializeField] private GameObject[] m_TargetObjects;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
