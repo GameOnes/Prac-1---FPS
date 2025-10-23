@@ -666,6 +666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LifeBarUIRectTransform: {fileID: 460160922}
   m_ForegroundLifeBarUI: {fileID: 927982464}
+  m_ForegroundRect: {fileID: 0}
 --- !u!1001 &253184174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3452,6 +3453,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_Anchor
+      value: 
+      objectReference: {fileID: 1701253588}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 642195880}
@@ -3464,9 +3469,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1056244238}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_AmmoNumber
+      value: 
+      objectReference: {fileID: 1264922379}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_HealthNumber
+      value: 
+      objectReference: {fileID: 949969350}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_MaxAmmoCount
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_ShieldNumber
+      value: 
+      objectReference: {fileID: 609341168}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_CurrentHealth
       value: 100
@@ -3527,6 +3544,17 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!114 &1056244239 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+  m_PrefabInstance: {fileID: 1056244236}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056244237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdcd3c420e2eb484598d0b620a82f211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1069538958
 GameObject:
   m_ObjectHideFlags: 0
@@ -3580,6 +3608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LifeBarUIRectTransform: {fileID: 935485238}
   m_ForegroundLifeBarUI: {fileID: 1901012562}
+  m_ForegroundRect: {fileID: 0}
 --- !u!1001 &1085036045
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5271,6 +5300,7 @@ GameObject:
   - component: {fileID: 1610880054}
   - component: {fileID: 1610880053}
   - component: {fileID: 1610880052}
+  - component: {fileID: 1610880057}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -5382,6 +5412,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1610880057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610880051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057c0000575245a499d698f6334c6b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TstDmg
+  dmg: 30
 --- !u!1001 &1614936075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6190,6 +6233,7 @@ GameObject:
   - component: {fileID: 1893026531}
   - component: {fileID: 1893026530}
   - component: {fileID: 1893026529}
+  - component: {fileID: 1893026532}
   m_Layer: 5
   m_Name: LifeBarsUI
   m_TagString: Untagged
@@ -6263,6 +6307,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1893026532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893026528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057c0000575245a499d698f6334c6b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TstDmg
+  dmg: 30
 --- !u!1 &1901008585
 GameObject:
   m_ObjectHideFlags: 0
@@ -7216,6 +7273,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AmmoItem
       objectReference: {fileID: 0}
+    - target: {fileID: 4726975021928125816, guid: 9961c44071c08d24fbb8909295c6dff0, type: 3}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 1056244239}
     - target: {fileID: 6951059468762499403, guid: 9961c44071c08d24fbb8909295c6dff0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 167.95
@@ -7256,7 +7317,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4726975021928125816, guid: 9961c44071c08d24fbb8909295c6dff0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -7288,6 +7350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AmmoItem
   m_ItAnimation: {fileID: 6873243348092402128}
   m_ItemAnimationClip: {fileID: 7400000, guid: b8ea39f0e44e3d744825521e44946402, type: 2}
+  m_Player: {fileID: 1056244239}
   m_AmmoCount: 60
 --- !u!1001 &7467516674003056932
 PrefabInstance:
@@ -7357,6 +7420,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6126529433733644484, guid: 3efd5633e2d059740a40c75c1611cd4d, type: 3}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 1056244239}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7426,6 +7493,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7709648271028996874, guid: 408e34cc2efd7fd4488b037f402b30e9, type: 3}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 1056244239}
     - target: {fileID: 8492199831643242479, guid: 408e34cc2efd7fd4488b037f402b30e9, type: 3}
       propertyPath: m_IsTrigger
       value: 1
