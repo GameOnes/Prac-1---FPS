@@ -4,27 +4,31 @@ public class ShieldItem : Item
 {
     public Animation m_ItAnimation;
     public AnimationClip m_ItemAnimationClip;
-    public int m_ShieldCount;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public PlayerController m_Player;
+    public float m_Shield;
+
+    private void Awake()
+    {
+        SetIdleAnimation();
+    }
     public override void Pick()
     {
-        base.Pick();
-        GameManager.GetGameManager().GetPlayer().AddShield(m_ShieldCount);
-    }
 
-    // Update is called once per frame
-    public override bool CanPick()
+        m_Player.AddShield(m_Shield, gameObject);
+
+    }
+    private void OnTriggerEnter(Collider other)
     {
-        if (m_ShieldCount>0)
+        if (other.tag == "Player")
         {
-            SetIdleAnimation();
-            return true;
-        }
-        else return false;
-    }
 
+            Pick();
+        }
+    }
     void SetIdleAnimation()
     {
+        m_ItAnimation.Play(m_ItemAnimationClip.name);
         m_ItAnimation.CrossFade(m_ItemAnimationClip.name, 0.1f);
+
     }
 }

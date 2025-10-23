@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using static Unity.Cinemachine.CinemachineOrbitalTransposer;
 public class PlayerController : MonoBehaviour
 {
     Vector3 m_StartPosition;
@@ -61,12 +62,16 @@ public class PlayerController : MonoBehaviour
     public float m_MaxShield = 100.0f;
     public float m_CurrentShield;
     LifeBarElementUI lifeBar;
-    Vector3 m_Health;
+   
 
     [Header("UI")]
-    [SerializeField] private TextMeshPro m_HealthNumber;
-    [SerializeField] private TextMeshPro m_ShieldNumber;
-    [SerializeField] private TextMeshPro m_AmmoNumber;
+    [SerializeField] private TextMeshProUGUI m_HealthNumber;
+    [SerializeField] private TextMeshProUGUI m_ShieldNumber;
+    [SerializeField] private TextMeshProUGUI m_AmmoNumber;
+    public Transform m_Anchor;
+   
+
+
 
     void Start()
     {
@@ -154,6 +159,10 @@ public class PlayerController : MonoBehaviour
             Shoot();
         if (CanReload() && Input.GetKeyDown(m_ReloadKeyCode))
             Reload();
+
+        m_AmmoNumber.text = m_AmmoCount.ToString() + " / " + m_MaxAmmoCount.ToString();
+        m_HealthNumber.text = m_CurrentHealth.ToString() + " / " + m_MaxHealth.ToString();
+        m_ShieldNumber.text = m_CurrentShield.ToString() + " / " + m_MaxShield.ToString();
     }
     bool CanReload()
     {
@@ -194,6 +203,7 @@ public class PlayerController : MonoBehaviour
                     CreateShootHitParticles(l_RayCastHit.point, l_RayCastHit.normal);
             }
         }
+       
 
 
     }
@@ -224,58 +234,68 @@ public class PlayerController : MonoBehaviour
         m_Animation.CrossFade(m_ShootAnimationClip.name, 0.1f);
 
     }
-    public void AddAmmo(int ammo)
+    public void AddAmmo(float _ammo, GameObject _item)
     {
-        m_MaxAmmoCount+= ammo;
-        ammo = ammo + 80;
+        float actualAmmo = m_MaxAmmoCount - m_AmmoCount;
+        if(_ammo > actualAmmo) { _ammo = actualAmmo; }
+        if (_ammo > 0) { Destroy(_item); m_MaxAmmoCount += _ammo; }
+    }
+    public void DestroyExtraAmmo(float ammoLost)
+    {
+
+        m_AmmoCount -= ammoLost;
     }
 
-    public void AddShield(int shield)
+    public void AddShield(float _shieldAdd, GameObject _item)
     {
-        m_CurrentShield = shield;
-        shield = shield + 100;
+
+        float _actualShield = m_MaxShield - m_CurrentShield;
+        if (_shieldAdd > _actualShield) { _shieldAdd = _actualShield; }
+        if (_shieldAdd > 0) { Destroy(_item); m_CurrentShield += _shieldAdd; }
     }
 
-    public void AddLife(int life)
+    public void AddLife(float _healing, GameObject _item)
     {
-        m_CurrentHealth = life;
-        life = 100;
+        float _actualLife = m_MaxHealth - m_CurrentHealth;
+        if(_healing > _actualLife) { _healing = _actualLife; }
+        if(_healing > 0) { Destroy(_item); m_CurrentHealth += _healing; }
     }
 
     public void GetDamage( float realDamage)
     {
-        if (m_CurrentShield >= 0)
+        Debug.Log("AUCH!");
+        if (m_CurrentShield > 0)
         {
             m_CurrentHealth = m_CurrentHealth - (realDamage * 0.25f);
             m_CurrentShield = m_CurrentShield - (realDamage * 0.75f);
 
-            if (m_CurrentShield < 0)
+            /*if (m_CurrentShield < 0)
             {
                 float extradmg = -m_CurrentShield;
                 m_CurrentShield = 0;
                 m_CurrentHealth -= m_CurrentHealth + extradmg;
-            }
-
-
+                Debug.Log(extradmg);}*/
         }
         else
         {
-            m_CurrentHealth = m_CurrentHealth - realDamage;
+            Debug.Log("no hay escudo");
+            m_CurrentShield = 0;
+            m_CurrentHealth -= realDamage;
         }
-        lifeBar.Show(m_Health, realDamage);
+        Vector3 worldPos = (m_Anchor != null) ? m_Anchor.position : (transform.position + Vector3.up * 2.0f);
+        m_CurrentHealth = Mathf.Clamp(m_CurrentHealth, 0, m_MaxHealth); // nos permite verificar que la vida no sea menor que 0 ni mayor que la vida maxima
+        m_CurrentShield =Mathf.Clamp(m_CurrentShield, 0, m_MaxShield); // nos permite verificar que el escudo no sea menor que 0 ni mayor que el escudo maximo
+
+
+        lifeBar.Show(worldPos, m_CurrentHealth/m_MaxHealth);
+
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Item"))
-        {
-            Item l_Item = other.GetComponent<Item>();
-            if ((l_Item.CanPick()))
-            {
-                l_Item.Pick();
-            }
-        }
-        else if (other.CompareTag("DeadZone"))
+        
+        if (other.CompareTag("DeadZone"))
         {
             Kill();
         }

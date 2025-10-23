@@ -100,9 +100,10 @@ GameObject:
   - component: {fileID: 6951059468762499403}
   - component: {fileID: 3808692073571510929}
   - component: {fileID: 2324687945726859276}
+  - component: {fileID: 4726975021928125816}
   m_Layer: 0
   m_Name: AmmoItem 1
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,7 +134,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 4
   m_Animation: {fileID: 7400000, guid: b8ea39f0e44e3d744825521e44946402, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: b8ea39f0e44e3d744825521e44946402, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -159,4 +161,20 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.87
-  m_Center: {x: 4.93, y: 3.97, z: 0}
+  m_Center: {x: 5.06, y: 3.97, z: 0}
+--- !u!114 &4726975021928125816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4523660881305587985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 209d6b2007f6e664cb6507a21d8e2a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AmmoItem
+  m_ItAnimation: {fileID: 3808692073571510929}
+  m_ItemAnimationClip: {fileID: 7400000, guid: b8ea39f0e44e3d744825521e44946402, type: 2}
+  m_Player: {fileID: 0}
+  m_AmmoCount: 30

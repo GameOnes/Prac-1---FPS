@@ -4,29 +4,32 @@ public class AmmoItem : Item
 {
     public Animation m_ItAnimation;
     public AnimationClip m_ItemAnimationClip;
-    public int m_AmmoCount;
+    public PlayerController m_Player;
+    public float m_AmmoCount;
+
+    private void Awake()
+    {
+        SetIdleAnimation();
+    }
     public override void Pick()
     {
-
-        if (CanPick())
-        {
-            base.Pick();
-            GameManager.GetGameManager().GetPlayer().AddAmmo(m_AmmoCount);
-        }
+        
+        m_Player.AddAmmo(m_AmmoCount,gameObject);
 
     }
-    public override bool CanPick()
+    private void OnTriggerEnter(Collider other)
     {
-        if (m_AmmoCount == 0)
+        if (other.tag=="Player")
         {
-            SetIdleAnimation();
-            return true;
+
+            Pick();
         }
-        else return false;
     }
     void SetIdleAnimation()
     {
+        m_ItAnimation.Play(m_ItemAnimationClip.name);
         m_ItAnimation.CrossFade(m_ItemAnimationClip.name, 0.1f);
+
     }
 }
 
