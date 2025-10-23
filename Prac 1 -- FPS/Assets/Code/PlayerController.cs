@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using TMPro;
+using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Vector3 m_StartPosition;
@@ -62,8 +63,14 @@ public class PlayerController : MonoBehaviour
     LifeBarElementUI lifeBar;
     Vector3 m_Health;
 
+    [Header("UI")]
+    [SerializeField] private TextMeshPro m_HealthNumber;
+    [SerializeField] private TextMeshPro m_ShieldNumber;
+    [SerializeField] private TextMeshPro m_AmmoNumber;
+
     void Start()
     {
+
         lifeBar = GetComponent<LifeBarElementUI>();
         m_CurrentHealth = m_MaxHealth;
         m_CurrentShield = m_MaxShield;
