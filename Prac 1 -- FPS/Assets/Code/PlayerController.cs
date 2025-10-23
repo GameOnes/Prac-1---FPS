@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     public float m_MaxShield = 100.0f;
     public float m_CurrentShield;
     LifeBarElementUI lifeBar;
-    Vector3 m_Health;
+   
 
     [Header("UI")]
     [SerializeField] private TextMeshProUGUI m_HealthNumber;
@@ -235,8 +235,7 @@ public class PlayerController : MonoBehaviour
     }
     public void AddAmmo(int ammo)
     {
-        m_MaxAmmoCount+= ammo;
-        ammo = ammo + 80;
+        m_AmmoCount = Mathf.Min(m_AmmoCount + ammo, m_MaxAmmoCount); 
     }
 
     public void AddShield(int shield)
@@ -254,40 +253,41 @@ public class PlayerController : MonoBehaviour
 
     public void GetDamage( float realDamage)
     {
-        if (m_CurrentShield >= 0)
+        Debug.Log("AUCH!");
+        if (m_CurrentShield > 0)
         {
             m_CurrentHealth = m_CurrentHealth - (realDamage * 0.25f);
             m_CurrentShield = m_CurrentShield - (realDamage * 0.75f);
 
-            if (m_CurrentShield < 0)
+            /*if (m_CurrentShield < 0)
             {
                 float extradmg = -m_CurrentShield;
                 m_CurrentShield = 0;
                 m_CurrentHealth -= m_CurrentHealth + extradmg;
-                Debug.Log(extradmg);
-            }
-
-            Debug.Log("hay escudo");
+                Debug.Log(extradmg);}*/
         }
         else
         {
             Debug.Log("no hay escudo");
+            m_CurrentShield = 0;
             m_CurrentHealth -= realDamage;
         }
-        m_CurrentHealth = Mathf.Clamp(m_CurrentHealth, 0.0f, m_MaxHealth); // nos permite verificar que la vida no sea menor que 0 ni mayor que la vida maxima
-        m_CurrentShield =Mathf.Clamp(m_CurrentShield, 0.0f, m_MaxShield); // nos permite verificar que el escudo no sea menor que 0 ni mayor que el escudo maximo
+        Vector3 worldPos = (m_Anchor != null) ? m_Anchor.position : (transform.position + Vector3.up * 2.0f);
+        m_CurrentHealth = Mathf.Clamp(m_CurrentHealth, 0, m_MaxHealth); // nos permite verificar que la vida no sea menor que 0 ni mayor que la vida maxima
+        m_CurrentShield =Mathf.Clamp(m_CurrentShield, 0, m_MaxShield); // nos permite verificar que el escudo no sea menor que 0 ni mayor que el escudo maximo
 
-        Vector3 worldPos =(m_Anchor!= null) ? m_Anchor.position : (transform.position + Vector3.up * 2.0f);
-        float lifePorcentage = Mathf.Clamp01(m_CurrentHealth / m_MaxHealth);
-        lifeBar.Show(worldPos, lifePorcentage);
+
+        lifeBar.Show(worldPos, m_CurrentHealth/m_MaxHealth);
+
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Item"))
+        if (other.CompareTag("Item")) // si colisiona con un objeto con la etiqueta "Item"
         {
             Item l_Item = other.GetComponent<Item>();
-            if ((l_Item.CanPick()))
+            if ((l_Item.CanPick()))  
             {
                 l_Item.Pick();
             }

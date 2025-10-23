@@ -3,7 +3,7 @@ using UnityEngine;
 public class TstDmg : MonoBehaviour
 {
 
-    public float dmg = 25f;
+    public float dmg = 30;
 
     private void OnTriggerEnter(Collider other)
     {

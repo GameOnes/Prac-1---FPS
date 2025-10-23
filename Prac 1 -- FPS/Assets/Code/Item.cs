@@ -6,7 +6,8 @@ public abstract class Item : MonoBehaviour
     {
         GameObject.Destroy(gameObject);
     }
-    public abstract bool CanPick();
+    public abstract bool CanPick(); // esto obliga a las clases derivadas a implementar este metodo
+    //una clase derivada es una clase que hereda de otra clase base.
 }
 
 
