@@ -13,8 +13,8 @@ public class ShootingGallery : MonoBehaviour
     private int m_Goal;
 
     [Header("Text")]
-    private TextMeshPro m_ScoreText;
-    private TextMeshPro m_TimeText;
+    [SerializeField] private TextMeshPro m_ScoreText;
+    [SerializeField] private TextMeshPro m_TimeText;
 
     [Header("Gallery")]
     private bool m_GalleryOn;
