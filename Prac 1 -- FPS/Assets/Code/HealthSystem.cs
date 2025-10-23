@@ -46,7 +46,7 @@ public class HealthSystem : MonoBehaviour
     }
     public void Death()
     {
-        Respawn();
+        //Respawn();
     }
 
 }
