@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using static Unity.Cinemachine.CinemachineOrbitalTransposer;
 public class PlayerController : MonoBehaviour
 {
     Vector3 m_StartPosition;
@@ -233,22 +234,31 @@ public class PlayerController : MonoBehaviour
         m_Animation.CrossFade(m_ShootAnimationClip.name, 0.1f);
 
     }
-    public void AddAmmo(int ammo)
+    public void AddAmmo(float _ammo, GameObject _item)
     {
-        m_AmmoCount = Mathf.Min(m_AmmoCount + ammo, m_MaxAmmoCount); 
+        float actualAmmo = m_MaxAmmoCount - m_AmmoCount;
+        if(_ammo > actualAmmo) { _ammo = actualAmmo; }
+        if (_ammo > 0) { Destroy(_item); m_MaxAmmoCount += _ammo; }
+    }
+    public void DestroyExtraAmmo(float ammoLost)
+    {
+
+        m_AmmoCount -= ammoLost;
     }
 
-    public void AddShield(int shield)
+    public void AddShield(float _shieldAdd, GameObject _item)
     {
 
-        if (m_CurrentShield > m_MaxShield)
-        { m_CurrentShield = m_CurrentShield + shield; }
+        float _actualShield = m_MaxShield - m_CurrentShield;
+        if (_shieldAdd > _actualShield) { _shieldAdd = _actualShield; }
+        if (_shieldAdd > 0) { Destroy(_item); m_CurrentShield += _shieldAdd; }
     }
 
-    public void AddLife(int life)
+    public void AddLife(float _healing, GameObject _item)
     {
-        m_CurrentHealth = life;
-        life = 100;
+        float _actualLife = m_MaxHealth - m_CurrentHealth;
+        if(_healing > _actualLife) { _healing = _actualLife; }
+        if(_healing > 0) { Destroy(_item); m_CurrentHealth += _healing; }
     }
 
     public void GetDamage( float realDamage)
@@ -284,15 +294,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Item")) // si colisiona con un objeto con la etiqueta "Item"
-        {
-            Item l_Item = other.GetComponent<Item>();
-            if ((l_Item.CanPick()))  
-            {
-                l_Item.Pick();
-            }
-        }
-        else if (other.CompareTag("DeadZone"))
+        
+        if (other.CompareTag("DeadZone"))
         {
             Kill();
         }

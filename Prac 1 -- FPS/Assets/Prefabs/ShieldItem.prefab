@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4590712179975669820}
   - component: {fileID: 4463121142791029968}
-  - component: {fileID: 8492199831643242479}
   - component: {fileID: 7709648271028996874}
+  - component: {fileID: 8668807882857754576}
   m_Layer: 0
   m_Name: ShieldItem
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,14 +44,31 @@ Animation:
   m_GameObject: {fileID: 4158714809359095472}
   m_Enabled: 1
   serializedVersion: 4
-  m_Animation: {fileID: 0}
-  m_Animations: []
+  m_Animation: {fileID: 7400000, guid: ebf830b5d7310124283fe656a866e0b1, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: ebf830b5d7310124283fe656a866e0b1, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
---- !u!135 &8492199831643242479
+--- !u!114 &7709648271028996874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4158714809359095472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3491623d60de3a447ba286204b0813b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShieldItem
+  m_ItAnimation: {fileID: 4463121142791029968}
+  m_ItemAnimationClip: {fileID: 7400000, guid: ebf830b5d7310124283fe656a866e0b1, type: 2}
+  m_Player: {fileID: 0}
+  m_Shield: 50
+--- !u!135 &8668807882857754576
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,27 +83,12 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7709648271028996874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4158714809359095472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3491623d60de3a447ba286204b0813b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ShieldItem
-  m_ItAnimation: {fileID: 0}
-  m_ItemAnimationClip: {fileID: 0}
-  m_ShieldCount: 100
+  m_Radius: 0.83
+  m_Center: {x: 0.04, y: -0.71, z: -0.02}
 --- !u!1 &7946624275371920333
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +100,6 @@ GameObject:
   - component: {fileID: 8254445598181494985}
   - component: {fileID: 1091732848069290871}
   - component: {fileID: 3003235479035780197}
-  - component: {fileID: 1960106205423084087}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -177,24 +178,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1960106205423084087
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7946624275371920333}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

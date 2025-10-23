@@ -3768,11 +3768,11 @@ PrefabInstance:
       objectReference: {fileID: 609341168}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_CurrentHealth
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_CurrentShield
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_LifeBarAnchor
@@ -3830,6 +3830,17 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
+--- !u!114 &1056244240 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+  m_PrefabInstance: {fileID: 1056244236}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056244237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdcd3c420e2eb484598d0b620a82f211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1069538958
 GameObject:
   m_ObjectHideFlags: 0
@@ -7070,6 +7081,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Item
       objectReference: {fileID: 0}
+    - target: {fileID: 4726975021928125816, guid: 9961c44071c08d24fbb8909295c6dff0, type: 3}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 1056244240}
     - target: {fileID: 6850817509255696555, guid: 9961c44071c08d24fbb8909295c6dff0, type: 3}
       propertyPath: m_TagString
       value: Item
@@ -7117,37 +7132,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4523660881305587985, guid: 9961c44071c08d24fbb8909295c6dff0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6873243348092402129}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9961c44071c08d24fbb8909295c6dff0, type: 3}
---- !u!1 &6873243348092402127 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4523660881305587985, guid: 9961c44071c08d24fbb8909295c6dff0, type: 3}
-  m_PrefabInstance: {fileID: 6873243348092402126}
-  m_PrefabAsset: {fileID: 0}
---- !u!111 &6873243348092402128 stripped
-Animation:
-  m_CorrespondingSourceObject: {fileID: 3808692073571510929, guid: 9961c44071c08d24fbb8909295c6dff0, type: 3}
-  m_PrefabInstance: {fileID: 6873243348092402126}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6873243348092402129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6873243348092402127}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 209d6b2007f6e664cb6507a21d8e2a52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AmmoItem
-  m_ItAnimation: {fileID: 6873243348092402128}
-  m_ItemAnimationClip: {fileID: 7400000, guid: b8ea39f0e44e3d744825521e44946402, type: 2}
-  m_Player: {fileID: 0}
-  m_AmmoCount: 60
 --- !u!1001 &7467516674003056932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7159,6 +7145,10 @@ PrefabInstance:
     - target: {fileID: 178742035719049591, guid: 3efd5633e2d059740a40c75c1611cd4d, type: 3}
       propertyPath: m_Name
       value: Healthitem
+      objectReference: {fileID: 0}
+    - target: {fileID: 178742035719049591, guid: 3efd5633e2d059740a40c75c1611cd4d, type: 3}
+      propertyPath: m_TagString
+      value: Item
       objectReference: {fileID: 0}
     - target: {fileID: 3351097799620160639, guid: 3efd5633e2d059740a40c75c1611cd4d, type: 3}
       propertyPath: m_IsTrigger
@@ -7216,6 +7206,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6126529433733644484, guid: 3efd5633e2d059740a40c75c1611cd4d, type: 3}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 1056244240}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7232,6 +7226,10 @@ PrefabInstance:
     - target: {fileID: 4158714809359095472, guid: 408e34cc2efd7fd4488b037f402b30e9, type: 3}
       propertyPath: m_Name
       value: ShieldItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 4158714809359095472, guid: 408e34cc2efd7fd4488b037f402b30e9, type: 3}
+      propertyPath: m_TagString
+      value: Item
       objectReference: {fileID: 0}
     - target: {fileID: 4463121142791029968, guid: 408e34cc2efd7fd4488b037f402b30e9, type: 3}
       propertyPath: m_Animation
@@ -7285,6 +7283,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7709648271028996874, guid: 408e34cc2efd7fd4488b037f402b30e9, type: 3}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 1056244240}
     - target: {fileID: 8492199831643242479, guid: 408e34cc2efd7fd4488b037f402b30e9, type: 3}
       propertyPath: m_IsTrigger
       value: 1
