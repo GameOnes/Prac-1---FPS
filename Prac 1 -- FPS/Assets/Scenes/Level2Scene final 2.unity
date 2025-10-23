@@ -2632,6 +2632,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AmmoItem
   m_ItAnimation: {fileID: 334895418}
   m_ItemAnimationClip: {fileID: 7400000, guid: b8ea39f0e44e3d744825521e44946402, type: 2}
+  m_Player: {fileID: 0}
   m_AmmoCount: 60
 --- !u!1001 &349182773
 PrefabInstance:
@@ -4120,6 +4121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AmmoItem
   m_ItAnimation: {fileID: 619860511}
   m_ItemAnimationClip: {fileID: 7400000, guid: b8ea39f0e44e3d744825521e44946402, type: 2}
+  m_Player: {fileID: 0}
   m_AmmoCount: 60
 --- !u!1001 &621929567
 PrefabInstance:
@@ -5563,6 +5565,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_Anchor
+      value: 
+      objectReference: {fileID: 2031420100}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 790203320}
@@ -5575,9 +5581,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 790203321}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_AmmoNumber
+      value: 
+      objectReference: {fileID: 1783301976}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_HealthNumber
+      value: 
+      objectReference: {fileID: 1400659268}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_MaxAmmoCount
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_ShieldNumber
+      value: 
+      objectReference: {fileID: 1058417416}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_CurrentHealth
       value: 100
@@ -9334,6 +9352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LifeBarUIRectTransform: {fileID: 1974218437}
   m_ForegroundLifeBarUI: {fileID: 1678078540}
+  m_ForegroundRect: {fileID: 0}
 --- !u!1001 &1237359873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12157,6 +12176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LifeBarUIRectTransform: {fileID: 1870649575}
   m_ForegroundLifeBarUI: {fileID: 655498142}
+  m_ForegroundRect: {fileID: 0}
 --- !u!1001 &1596413418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12608,6 +12628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AmmoItem
   m_ItAnimation: {fileID: 1718825478}
   m_ItemAnimationClip: {fileID: 7400000, guid: b8ea39f0e44e3d744825521e44946402, type: 2}
+  m_Player: {fileID: 0}
   m_AmmoCount: 60
 --- !u!1 &1720181917 stripped
 GameObject:
@@ -13707,6 +13728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AmmoItem
   m_ItAnimation: {fileID: 1818066639}
   m_ItemAnimationClip: {fileID: 7400000, guid: b8ea39f0e44e3d744825521e44946402, type: 2}
+  m_Player: {fileID: 0}
   m_AmmoCount: 60
 --- !u!1001 &1818935904
 PrefabInstance:
