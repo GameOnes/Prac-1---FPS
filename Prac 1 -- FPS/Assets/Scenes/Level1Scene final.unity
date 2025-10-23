@@ -660,7 +660,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 30af663610f24ca4b9bcb8f1a8a447bd, type: 3}
 --- !u!4 &185909129 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 5326537363061472658, guid: 30af663610f24ca4b9bcb8f1a8a447bd, type: 3}
+  m_CorrespondingSourceObject: {fileID: 281864461436284065, guid: 30af663610f24ca4b9bcb8f1a8a447bd, type: 3}
   m_PrefabInstance: {fileID: 185909128}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &246549163
@@ -1056,6 +1056,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 988d4ecc856fd744e92e29fb58d9a3c0, type: 3}
   m_PrefabInstance: {fileID: 301162139}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &318192331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 318192332}
+  m_Layer: 5
+  m_Name: AmmoUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &318192332
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318192331}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1264922378}
+  m_Father: {fileID: 1701253588}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 948, y: 347}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2608,7 +2644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 832.4, y: 352.9}
+  m_AnchoredPosition: {x: 764.6, y: 352.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &886563894
@@ -3643,7 +3679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1488989519974308590, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.28
+      value: 2.46
       objectReference: {fileID: 0}
     - target: {fileID: 1488989519974308590, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3702,9 +3738,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1056244238}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_AmmoNumber
+      value: 
+      objectReference: {fileID: 1264922379}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_HealthNumber
+      value: 
+      objectReference: {fileID: 949969350}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_MaxAmmoCount
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
+      propertyPath: m_ShieldNumber
+      value: 
+      objectReference: {fileID: 609341168}
     - target: {fileID: 5865606928767016083, guid: 6aaf7ff5cfce19042982be83136f5793, type: 3}
       propertyPath: m_CurrentHealth
       value: 100
@@ -4410,7 +4458,7 @@ GameObject:
   - component: {fileID: 1264922380}
   - component: {fileID: 1264922379}
   m_Layer: 5
-  m_Name: Ammunition
+  m_Name: CurrentAmmo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4423,16 +4471,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264922377}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1701253588}
+  m_Father: {fileID: 318192332}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 948, y: 347}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1264922379
@@ -4455,7 +4503,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 20/60
+  m_text: '20
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4520,7 +4570,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 107.74405, w: 0}
+  m_margin: {x: -54.074463, y: 0, z: 107.74405, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5792,7 +5842,7 @@ RectTransform:
   m_Children:
   - {fileID: 1069538959}
   - {fileID: 246549164}
-  - {fileID: 1264922378}
+  - {fileID: 318192332}
   - {fileID: 1123810608}
   - {fileID: 774967625}
   - {fileID: 886563893}
@@ -6092,7 +6142,7 @@ GameObject:
   - component: {fileID: 1893026530}
   - component: {fileID: 1893026529}
   m_Layer: 5
-  m_Name: LifeBarsUI
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

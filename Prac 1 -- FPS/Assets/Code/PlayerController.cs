@@ -64,9 +64,11 @@ public class PlayerController : MonoBehaviour
     Vector3 m_Health;
 
     [Header("UI")]
-    [SerializeField] private TextMeshPro m_HealthNumber;
-    [SerializeField] private TextMeshPro m_ShieldNumber;
-    [SerializeField] private TextMeshPro m_AmmoNumber;
+    [SerializeField] private TextMeshProUGUI m_HealthNumber;
+    [SerializeField] private TextMeshProUGUI m_ShieldNumber;
+    [SerializeField] private TextMeshProUGUI m_AmmoNumber;
+
+    
 
     void Start()
     {
@@ -154,6 +156,10 @@ public class PlayerController : MonoBehaviour
             Shoot();
         if (CanReload() && Input.GetKeyDown(m_ReloadKeyCode))
             Reload();
+
+        m_AmmoNumber.text = m_AmmoCount.ToString() + " / " + m_MaxAmmoCount.ToString();
+        m_HealthNumber.text = m_CurrentHealth.ToString() + " / " + m_MaxHealth.ToString();
+        m_ShieldNumber.text = m_CurrentShield.ToString() + " / " + m_MaxShield.ToString();
     }
     bool CanReload()
     {
@@ -194,6 +200,7 @@ public class PlayerController : MonoBehaviour
                     CreateShootHitParticles(l_RayCastHit.point, l_RayCastHit.normal);
             }
         }
+       
 
 
     }
@@ -232,8 +239,9 @@ public class PlayerController : MonoBehaviour
 
     public void AddShield(int shield)
     {
-        m_CurrentShield = shield;
-        shield = shield + 100;
+
+        if (m_CurrentShield > m_MaxShield)
+        { m_CurrentShield = m_CurrentShield + shield; }
     }
 
     public void AddLife(int life)
