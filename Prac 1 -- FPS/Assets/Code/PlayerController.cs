@@ -67,8 +67,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI m_HealthNumber;
     [SerializeField] private TextMeshProUGUI m_ShieldNumber;
     [SerializeField] private TextMeshProUGUI m_AmmoNumber;
+    public Transform m_Anchor;
+   
 
-    
+
 
     void Start()
     {
@@ -262,15 +264,22 @@ public class PlayerController : MonoBehaviour
                 float extradmg = -m_CurrentShield;
                 m_CurrentShield = 0;
                 m_CurrentHealth -= m_CurrentHealth + extradmg;
+                Debug.Log(extradmg);
             }
 
-
+            Debug.Log("hay escudo");
         }
         else
         {
-            m_CurrentHealth = m_CurrentHealth - realDamage;
+            Debug.Log("no hay escudo");
+            m_CurrentHealth -= realDamage;
         }
-        lifeBar.Show(m_Health, realDamage);
+        m_CurrentHealth = Mathf.Clamp(m_CurrentHealth, 0.0f, m_MaxHealth); // nos permite verificar que la vida no sea menor que 0 ni mayor que la vida maxima
+        m_CurrentShield =Mathf.Clamp(m_CurrentShield, 0.0f, m_MaxShield); // nos permite verificar que el escudo no sea menor que 0 ni mayor que el escudo maximo
+
+        Vector3 worldPos =(m_Anchor!= null) ? m_Anchor.position : (transform.position + Vector3.up * 2.0f);
+        float lifePorcentage = Mathf.Clamp01(m_CurrentHealth / m_MaxHealth);
+        lifeBar.Show(worldPos, lifePorcentage);
     }
 
     private void OnTriggerEnter(Collider other)

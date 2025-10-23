@@ -2,10 +2,22 @@ using UnityEngine;
 
 public class TstDmg : MonoBehaviour
 {
-    
-    
-    void Update()
+
+    public float dmg = 25f;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        TryRealDmg(other);
+    }
+    private void TryRealDmg(Collider col)
+    {
+
+        if (col == null) return;
+
+        var pc = col.GetComponentInParent<PlayerController>();
+        if (pc != null)
+        {
+            pc.GetDamage(dmg);
+        }
     }
 }
